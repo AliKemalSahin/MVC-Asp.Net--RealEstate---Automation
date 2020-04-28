@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="emlakcilikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="emlakcilikEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Gayrimenkul" EntityType="emlakcilikModel.Gayrimenkul" />
+    <EntitySet Name="Ilan" EntityType="emlakcilikModel.Ilan" />
+    <EntitySet Name="IlanTip" EntityType="emlakcilikModel.IlanTip" />
+    <EntitySet Name="Ilce" EntityType="emlakcilikModel.Ilce" />
+    <EntitySet Name="Kullanici" EntityType="emlakcilikModel.Kullanici" />
+    <EntitySet Name="Sehir" EntityType="emlakcilikModel.Sehir" />
+    <EntitySet Name="Yetki" EntityType="emlakcilikModel.Yetki" />
+    <EntitySet Name="YetkiIzinler" EntityType="emlakcilikModel.YetkiIzinler" />
+    <AssociationSet Name="FK_Ilan_Gayrimenkul" Association="emlakcilikModel.FK_Ilan_Gayrimenkul">
+      <End Role="Gayrimenkul" EntitySet="Gayrimenkul" />
+      <End Role="Ilan" EntitySet="Ilan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ilan_IlanTip" Association="emlakcilikModel.FK_Ilan_IlanTip">
+      <End Role="IlanTip" EntitySet="IlanTip" />
+      <End Role="Ilan" EntitySet="Ilan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ilan_Ilce" Association="emlakcilikModel.FK_Ilan_Ilce">
+      <End Role="Ilce" EntitySet="Ilce" />
+      <End Role="Ilan" EntitySet="Ilan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ilan_Sehir" Association="emlakcilikModel.FK_Ilan_Sehir">
+      <End Role="Sehir" EntitySet="Sehir" />
+      <End Role="Ilan" EntitySet="Ilan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_Yetki" Association="emlakcilikModel.FK_Kullanici_Yetki">
+      <End Role="Yetki" EntitySet="Yetki" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YetkiIzinler_Yetki" Association="emlakcilikModel.FK_YetkiIzinler_Yetki">
+      <End Role="Yetki" EntitySet="Yetki" />
+      <End Role="YetkiIzinler" EntitySet="YetkiIzinler" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Gayrimenkul">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OdaSayisi" Type="Int32" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsaatTarih" Type="DateTime" Precision="3" />
+    <Property Name="KatSayisi" Type="Int32" />
+    <Property Name="Isitma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Esya" Type="Boolean" />
+    <Property Name="Boya" Type="Boolean" />
+    <Property Name="Havuz" Type="Boolean" />
+    <NavigationProperty Name="Ilan" Relationship="emlakcilikModel.FK_Ilan_Gayrimenkul" FromRole="Gayrimenkul" ToRole="Ilan" />
+  </EntityType>
+  <EntityType Name="Ilan">
+    <Key>
+      <PropertyRef Name="IlanId" />
+    </Key>
+    <Property Name="IlanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlanTipId" Type="Int32" Nullable="false" />
+    <Property Name="Fiyat" Type="Int32" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="SehirId" Type="Int32" Nullable="false" />
+    <Property Name="IlceId" Type="Int32" Nullable="false" />
+    <Property Name="GayrimenkulId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gayrimenkul" Relationship="emlakcilikModel.FK_Ilan_Gayrimenkul" FromRole="Ilan" ToRole="Gayrimenkul" />
+    <NavigationProperty Name="IlanTip" Relationship="emlakcilikModel.FK_Ilan_IlanTip" FromRole="Ilan" ToRole="IlanTip" />
+    <NavigationProperty Name="Ilce" Relationship="emlakcilikModel.FK_Ilan_Ilce" FromRole="Ilan" ToRole="Ilce" />
+    <NavigationProperty Name="Sehir" Relationship="emlakcilikModel.FK_Ilan_Sehir" FromRole="Ilan" ToRole="Sehir" />
+  </EntityType>
+  <EntityType Name="IlanTip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IlanTipi" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ilan" Relationship="emlakcilikModel.FK_Ilan_IlanTip" FromRole="IlanTip" ToRole="Ilan" />
+  </EntityType>
+  <EntityType Name="Ilce">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SehirId" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ilan" Relationship="emlakcilikModel.FK_Ilan_Ilce" FromRole="Ilce" ToRole="Ilan" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sifre" Type="Int32" Nullable="false" />
+    <Property Name="YetkiTipiId" Type="Int32" Nullable="false" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MedeniDurum" Type="Boolean" />
+    <NavigationProperty Name="Yetki" Relationship="emlakcilikModel.FK_Kullanici_Yetki" FromRole="Kullanici" ToRole="Yetki" />
+  </EntityType>
+  <EntityType Name="Sehir">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IlceId" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ilan" Relationship="emlakcilikModel.FK_Ilan_Sehir" FromRole="Sehir" ToRole="Ilan" />
+  </EntityType>
+  <EntityType Name="Yetki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YetkiTipi" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="emlakcilikModel.FK_Kullanici_Yetki" FromRole="Yetki" ToRole="Kullanici" />
+    <NavigationProperty Name="YetkiIzinler" Relationship="emlakcilikModel.FK_YetkiIzinler_Yetki" FromRole="Yetki" ToRole="YetkiIzinler" />
+  </EntityType>
+  <EntityType Name="YetkiIzinler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="YetkiTipiId" Type="Int32" Nullable="false" />
+    <Property Name="Yetkiler" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Yetki" Relationship="emlakcilikModel.FK_YetkiIzinler_Yetki" FromRole="YetkiIzinler" ToRole="Yetki" />
+  </EntityType>
+  <Association Name="FK_Ilan_Gayrimenkul">
+    <End Type="emlakcilikModel.Gayrimenkul" Role="Gayrimenkul" Multiplicity="1" />
+    <End Type="emlakcilikModel.Ilan" Role="Ilan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gayrimenkul">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ilan">
+        <PropertyRef Name="GayrimenkulId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ilan_IlanTip">
+    <End Type="emlakcilikModel.IlanTip" Role="IlanTip" Multiplicity="1" />
+    <End Type="emlakcilikModel.Ilan" Role="Ilan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IlanTip">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ilan">
+        <PropertyRef Name="IlanTipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ilan_Ilce">
+    <End Type="emlakcilikModel.Ilce" Role="Ilce" Multiplicity="1" />
+    <End Type="emlakcilikModel.Ilan" Role="Ilan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ilce">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ilan">
+        <PropertyRef Name="IlceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ilan_Sehir">
+    <End Type="emlakcilikModel.Sehir" Role="Sehir" Multiplicity="1" />
+    <End Type="emlakcilikModel.Ilan" Role="Ilan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sehir">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ilan">
+        <PropertyRef Name="SehirId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_Yetki">
+    <End Type="emlakcilikModel.Yetki" Role="Yetki" Multiplicity="1" />
+    <End Type="emlakcilikModel.Kullanici" Role="Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Yetki">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="YetkiTipiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YetkiIzinler_Yetki">
+    <End Type="emlakcilikModel.Yetki" Role="Yetki" Multiplicity="1" />
+    <End Type="emlakcilikModel.YetkiIzinler" Role="YetkiIzinler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Yetki">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="YetkiIzinler">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

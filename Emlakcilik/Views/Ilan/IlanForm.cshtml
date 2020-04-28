@@ -1,0 +1,41 @@
+﻿@model Emlakcilik.ViewModels.IlanFormViewModel
+
+@{ 
+    ViewBag.Title = "IlanForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ilan Formu</h2>
+@using (Html.BeginForm("Kaydet", "Ilan", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.IlanId)
+        @Html.TextBoxFor(m => m.ilan.IlanId,new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.IlanTip.IlanTipi)
+        @Html.DropDownListFor(m => m.ilan.IlanTipId,new SelectList(Model.Tipler, "Id","IlanTipi"),"İlan Tipi Seçiniz...",new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.Fiyat)
+        @Html.TextBoxFor(m => m.ilan.Fiyat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.Tarih)
+        @Html.TextBoxFor(m => m.ilan.Tarih, new { @class = "form-control" })
+    </div> 
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.Sehir.Ad)
+        @Html.DropDownListFor(m => m.ilan.SehirId, new SelectList(Model.Sehirler, "Id", "Ad"),"Şehir Seçiniz...", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ilan.Ilce.Ad)
+        @Html.DropDownListFor(m => m.ilan.IlceId, new SelectList(Model.Ilceler, "Id", "Ad"),"İlçe Seçiniz...", new { @class = "form-control" })
+    </div>
+   <div class="form-group">
+        @Html.LabelFor(m => m.ilan.Gayrimenkul.Adres)
+        @Html.DropDownListFor(m=>m.ilan.GayrimenkulId,new SelectList(Model.Gayrimenkuller,"Id","Adres"),"Adres Seçiniz...",new { @class="form-control"})
+    </div>
+    <button type="submit" class="btn btn-default">Kaydet</button>
+}
+

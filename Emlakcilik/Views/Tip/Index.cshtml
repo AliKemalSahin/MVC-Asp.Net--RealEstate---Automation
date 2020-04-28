@@ -1,0 +1,26 @@
+﻿@model List<Emlakcilik.Models.EntityFramework.IlanTip>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>İlan Tipleri</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ilan Id</th>
+            <th>Ilan Tipi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var IlanTip in Model){
+        <tr>
+            <td>@IlanTip.Id</td>
+            <td>@IlanTip.IlanTipi</td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>

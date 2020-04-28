@@ -1,0 +1,125 @@
+﻿@model Emlakcilik.Models.EntityFramework.Gayrimenkul
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    <div class="form-group">
+            <label>Gayrimenkul Id</label>
+            <input type="number" name="Id" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Oda Sayısı</label>
+            <input type="number" name="OdaSayisi" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Adres</label>
+            <input type="text" name="Adres" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>İnşaat Tarihi</label>
+            <input type="datetime" name="InsaatTarih" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Kat Sayısı</label>
+            <input type="number" name="KatSayisi" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Isıtma</label>
+            <input type="text" name="Isitma" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Eşya</label>
+            <input type="number" name="Esya" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Boya</label>
+            <input type="number" name="Boya" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label>Havuz</label>
+            <input type="number" name="Havuz" class="form-control" />
+
+        </div>
+
+        <button type="submit" class="btn btn-success">Ekle</button>
+    </form> *@
+
+@using (Html.BeginForm("Kaydet", "Emlak", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+
+
+        @Html.LabelFor(m => m.OdaSayisi)
+        @Html.TextBoxFor(m => m.OdaSayisi, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.Adres)
+        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.InsaatTarih)
+        @Html.TextBoxFor(m => m.InsaatTarih, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.KatSayisi)
+        @Html.TextBoxFor(m => m.KatSayisi, new { @class = "form-control" })
+
+        @Html.LabelFor(m => m.Isitma)
+        @Html.TextBoxFor(m => m.Isitma, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Esya)
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(m => m.Esya, true) Eşyalı
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.Esya, false) Eşyasız
+            </label>
+        </div>
+        @Html.LabelFor(m => m.Boya)
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(m => m.Boya, true) Boyalı
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.Boya, false) Boyasız
+            </label>
+        </div>
+
+        @Html.LabelFor(m => m.Havuz)
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(m => m.Havuz, true) Havuzlu
+            </label>
+            <label>
+                @Html.RadioButtonFor(m => m.Boya, false) Havuzsuz
+            </label>
+        </div>
+
+    </div>
+
+
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+
+
+
+
+@*@Html.TextBoxFor(m => m.Esya, new { @class = "form-control" })
+
+@Html.LabelFor(m => m.Boya)
+@Html.TextBoxFor(m => m.Id, new { @class = "form-control" })
+
+
+@Html.TextBoxFor(m => m.Id, new { @class = "form-control" })*@ 

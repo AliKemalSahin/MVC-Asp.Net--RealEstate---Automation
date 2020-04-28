@@ -1,0 +1,53 @@
+﻿@using Emlakcilik.Models.EntityFramework
+
+@model List<Gayrimenkul>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a class="btn btn-success" href="/Emlak/Yeni">Yeni Gayrimenkul</a>
+<a class="btn btn-success" href="/Emlak/Guncelle">Gayrimenkul Güncelleme</a>
+<a class="btn btn-success" href="/Emlak/Sil">Gayrimenkul Silme</a>
+ <h2>Emlak Sitesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Oda Sayisi</th>
+            <th>Adres</th>
+            <th>Insaat Tarihi</th>
+            <th>Kat Sayısı</th>
+            <th>Isıtma</th>
+            <th>Eşya</th>
+            <th>Boya</th>
+            <th>Havuz</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+       @foreach (var gayrimenkul in Model)
+       {
+        <tr>
+            <td>@gayrimenkul.Id</td>
+            <td>@gayrimenkul.OdaSayisi</td>
+            <td>@gayrimenkul.Adres</td>
+            <td>@gayrimenkul.InsaatTarih</td>  @*.Value.ToString("dd-MM-yyyy")*@
+            <td>@gayrimenkul.KatSayisi</td>
+            <td>@gayrimenkul.Isitma</td>
+            <td>@(gayrimenkul.Esya == true ? "Eşyalı" : "Eşyasız")</td>
+            <td>@(gayrimenkul.Boya == true ? "Boyalı" : "Boyasız")</td>
+            <td>@(gayrimenkul.Havuz == true ? "Havuzlu" : "Havuzsuz")</td>
+
+
+
+
+        </tr>
+       }
+
+
+    </tbody>
+</table>
+

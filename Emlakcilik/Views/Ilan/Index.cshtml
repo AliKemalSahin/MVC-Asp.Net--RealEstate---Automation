@@ -1,0 +1,39 @@
+﻿@model List<Emlakcilik.Models.EntityFramework.Ilan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Yeni İlan","Yeni",null,new {@class="btn btn-success" })
+
+<h2>Ilan Listesi</h2>
+
+<table class="table table-bordered" >
+      <thead>
+          <tr>
+              <th>Ilan Id</th>
+              <th>Ilan Tipi</th>
+              <th>Fiyatı</th>
+              <th>Tarihi</th>
+              <th>Şehir</th>
+              <th>İlçe</th>
+              <th>Gayrimenkul Adresi</th>
+          </tr>
+      </thead>
+      <tbody>
+          @foreach (var ilan in Model)
+          {
+              <tr>
+                  <td>@ilan.IlanId</td>
+                  <td>@ilan.IlanTip.IlanTipi</td>
+                  <td>@ilan.Fiyat</td>
+                  <td>@ilan.Tarih.Value.ToString("dd-MM-yyyy")</td>
+                  <td>@ilan.Sehir.Ad</td>
+                  <td>@ilan.Ilce.Ad</td>
+                  <td>@ilan.Gayrimenkul.Adres</td>
+
+              </tr>
+          }
+
+      </tbody>
+</table>

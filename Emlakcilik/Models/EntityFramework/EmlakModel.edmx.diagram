@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b27fbac3d2c3492584ab890ef750e224" Name="Diagram1">
+        <EntityTypeShape EntityType="emlakcilikModel.Gayrimenkul" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="emlakcilikModel.Ilan" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="emlakcilikModel.IlanTip" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="emlakcilikModel.Ilce" Width="1.5" PointX="0.75" PointY="7.625" />
+        <EntityTypeShape EntityType="emlakcilikModel.Kullanici" Width="1.5" PointX="8" PointY="1.125" />
+        <EntityTypeShape EntityType="emlakcilikModel.Sehir" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="emlakcilikModel.Yetki" Width="1.5" PointX="5.75" PointY="2.75" />
+        <EntityTypeShape EntityType="emlakcilikModel.YetkiIzinler" Width="1.5" PointX="8" PointY="4.375" />
+        <AssociationConnector Association="emlakcilikModel.FK_Ilan_Gayrimenkul" />
+        <AssociationConnector Association="emlakcilikModel.FK_Ilan_IlanTip" />
+        <AssociationConnector Association="emlakcilikModel.FK_Ilan_Ilce" />
+        <AssociationConnector Association="emlakcilikModel.FK_Ilan_Sehir" />
+        <AssociationConnector Association="emlakcilikModel.FK_Kullanici_Yetki" />
+        <AssociationConnector Association="emlakcilikModel.FK_YetkiIzinler_Yetki" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

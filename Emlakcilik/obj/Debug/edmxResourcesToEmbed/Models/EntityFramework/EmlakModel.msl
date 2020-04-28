@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="emlakcilikModelStoreContainer" CdmEntityContainer="emlakcilikEntities">
+    <EntitySetMapping Name="Gayrimenkul">
+      <EntityTypeMapping TypeName="emlakcilikModel.Gayrimenkul">
+        <MappingFragment StoreEntitySet="Gayrimenkul">
+          <ScalarProperty Name="Havuz" ColumnName="Havuz" />
+          <ScalarProperty Name="Boya" ColumnName="Boya" />
+          <ScalarProperty Name="Esya" ColumnName="Esya" />
+          <ScalarProperty Name="Isitma" ColumnName="Isitma" />
+          <ScalarProperty Name="KatSayisi" ColumnName="KatSayisi" />
+          <ScalarProperty Name="InsaatTarih" ColumnName="InsaatTarih" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="OdaSayisi" ColumnName="OdaSayisi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ilan">
+      <EntityTypeMapping TypeName="emlakcilikModel.Ilan">
+        <MappingFragment StoreEntitySet="Ilan">
+          <ScalarProperty Name="GayrimenkulId" ColumnName="GayrimenkulId" />
+          <ScalarProperty Name="IlceId" ColumnName="IlceId" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="IlanTipId" ColumnName="IlanTipId" />
+          <ScalarProperty Name="IlanId" ColumnName="IlanId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IlanTip">
+      <EntityTypeMapping TypeName="emlakcilikModel.IlanTip">
+        <MappingFragment StoreEntitySet="IlanTip">
+          <ScalarProperty Name="IlanTipi" ColumnName="IlanTipi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ilce">
+      <EntityTypeMapping TypeName="emlakcilikModel.Ilce">
+        <MappingFragment StoreEntitySet="Ilce">
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="emlakcilikModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="MedeniDurum" ColumnName="MedeniDurum" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="YetkiTipiId" ColumnName="YetkiTipiId" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sehir">
+      <EntityTypeMapping TypeName="emlakcilikModel.Sehir">
+        <MappingFragment StoreEntitySet="Sehir">
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="IlceId" ColumnName="IlceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yetki">
+      <EntityTypeMapping TypeName="emlakcilikModel.Yetki">
+        <MappingFragment StoreEntitySet="Yetki">
+          <ScalarProperty Name="YetkiTipi" ColumnName="YetkiTipi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YetkiIzinler">
+      <EntityTypeMapping TypeName="emlakcilikModel.YetkiIzinler">
+        <MappingFragment StoreEntitySet="YetkiIzinler">
+          <ScalarProperty Name="Yetkiler" ColumnName="Yetkiler" />
+          <ScalarProperty Name="YetkiTipiId" ColumnName="YetkiTipiId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
